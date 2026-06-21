@@ -1226,6 +1226,111 @@ header .menu.active {
     }
 }
 
+/* ────────────────────────────────────────────────
+   LOADING SCREEN
+──────────────────────────────────────────────── */
+#loader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.9s ease, visibility 0.9s ease;
+}
+
+#loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.loader-logo {
+    width: 130px;
+    filter: invert(1);
+    margin-bottom: 28px;
+    animation: loader-pulse 2s ease-in-out infinite;
+}
+
+@keyframes loader-pulse {
+    0%, 100% { opacity: 0.9; }
+    50%       { opacity: 0.4; }
+}
+
+.loader-brand {
+    font-family: 'Racing Sans One', cursive;
+    font-size: 2.8em;
+    color: var(--primary);
+    letter-spacing: 14px;
+    text-indent: 14px;
+    margin-bottom: 30px;
+}
+
+.loader-bar-track {
+    width: 260px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.07);
+    margin: 0 auto 16px;
+    overflow: hidden;
+}
+
+.loader-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, transparent, var(--primary), #fff);
+    box-shadow: 0 0 14px var(--primary);
+    animation: loader-fill 3.5s ease-in-out forwards;
+}
+
+@keyframes loader-fill {
+    0%   { width: 0%; }
+    30%  { width: 45%; }
+    65%  { width: 75%; }
+    90%  { width: 92%; }
+    100% { width: 100%; }
+}
+
+.loader-sub {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.62em;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.loader-lines {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.loader-lines span {
+    position: absolute;
+    display: block;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 194, 222, 0.18), transparent);
+    animation: loader-speed linear infinite;
+    left: -100%;
+}
+
+.loader-lines span:nth-child(1) { top: 18%; width: 75%; animation-duration: 2.2s; animation-delay: 0s;   }
+.loader-lines span:nth-child(2) { top: 34%; width: 55%; animation-duration: 1.8s; animation-delay: 0.4s; }
+.loader-lines span:nth-child(3) { top: 50%; width: 90%; animation-duration: 2.5s; animation-delay: 0.8s; }
+.loader-lines span:nth-child(4) { top: 66%; width: 60%; animation-duration: 1.6s; animation-delay: 1.2s; }
+.loader-lines span:nth-child(5) { top: 82%; width: 70%; animation-duration: 2.0s; animation-delay: 0.2s; }
+
+@keyframes loader-speed {
+    from { transform: translateX(0); }
+    to   { transform: translateX(260%); }
+}
+
 @media (max-width: 480px) {
     header {
         padding: 0 18px;

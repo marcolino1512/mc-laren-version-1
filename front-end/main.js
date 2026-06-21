@@ -221,6 +221,24 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // ────────────────────────────────────────────────────────────
+// ⏳ LOADING SCREEN — some após todos os recursos carregarem
+// ────────────────────────────────────────────────────────────
+(function () {
+    function esconderLoader() {
+        const loader = document.getElementById('loader');
+        if (!loader || loader.classList.contains('hidden')) return;
+        loader.classList.add('hidden');
+        setTimeout(() => loader.remove(), 900);
+    }
+
+    // Some quando o browser terminar de carregar tudo
+    window.addEventListener('load', () => setTimeout(esconderLoader, 500));
+
+    // Fallback: remove após 8s no máximo (ex: vídeo lento)
+    setTimeout(esconderLoader, 8000);
+}());
+
+// ────────────────────────────────────────────────────────────
 // 🔐 MODAL — abre, fecha e alterna abas de Login/Registro
 // ────────────────────────────────────────────────────────────
 const modalOverlay = document.getElementById('modal-overlay');

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <title>McLaren — Projeto Beta</title>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <span class="year">Sport Cars</span>
+        <a href="#" class="logo"><img src="icon/logo.png" alt="McLaren Logo"></a>
+        <div class="header-right">
+            <div class="user-badge" id="user-badge">
+                <i class="bi bi-person-circle"></i>
+                <span id="badge-name"></span>
+                <button class="btn-logout" id="btn-logout" onclick="logout()" title="Sair da conta">
+                    <i class="bi bi-box-arrow-right"></i>
+                </button>
+            </div>
+            <a href="#" class="menu" onclick="AlterarMenu(); return false;"></a>
+        </div>
+    </header>
+
+    <!-- ===== NAVEGAÇÃO ===== -->
+    <ul class="nav">
+        <li><a href="#" onclick="selecionarCarro('mclaren-1'); return false;">765LT Spider</a></li>
+        <li><a href="#" onclick="selecionarCarro('mclaren-2'); return false;">Artura</a></li>
+        <li><a href="#" onclick="selecionarCarro('mclaren-3'); return false;">750S</a></li>
+        <li><a href="#" onclick="selecionarCarro('mclaren-4'); return false;">765LT</a></li>
+        <li><a href="#" onclick="selecionarCarro('mclaren-5'); return false;">750S Spider</a></li>
+        <li><a href="#" onclick="selecionarCarro('mclaren-6'); return false;">Senna</a></li>
+    </ul>
+
+    <!-- ===== SEÇÃO 1 — HERO / BANNER ===== -->
+    <section class="banner" id="inicio">
+        <div class="bg-video-list">
+            <video class="bg-video trailer-1 active" src="videos/videos/trailer-1.mp4" autoplay loop muted playsinline></video>
+            <video class="bg-video mclaren-1" src="videos/videos/mclaren-1.mp4" autoplay loop muted playsinline></video>
+            <video class="bg-video mclaren-2" src="videos/videos/mclaren-2.mp4" autoplay loop muted playsinline></video>
+            <video class="bg-video mclaren-3" src="videos/videos/mclaren-3.mp4" autoplay loop muted playsinline></video>
+            <video class="bg-video mclaren-4" src="videos/videos/mclaren-4.mp4" autoplay loop muted playsinline></video>
+            <video class="bg-video mclaren-5" src="videos/videos/trailer-3.mp4" autoplay loop muted playsinline></video>
+            <video class="bg-video mclaren-6" src="videos/videos/mclaren-4.mp4" autoplay loop muted playsinline></video>
+        </div>
+
+        <div class="content">
+            <h1>Mc<span class="multiple-text"></span></h1>
+            <h3 class="model trailer-1 active" style="color:#ffd700;">McLAREN</h3>
+            <h3 class="model mclaren-1">765LT SPIDER</h3>
+            <h3 class="model mclaren-2" style="color:#92ff00;">ARTURA</h3>
+            <h3 class="model mclaren-3" style="color:#ff0015;">750S</h3>
+            <h3 class="model mclaren-4" style="color:#ff2e00;">765LT</h3>
+            <h3 class="model mclaren-5" style="color:#bbc0dd;">750S SPIDER</h3>
+            <h3 class="model mclaren-6" style="color:#ff9500;">SENNA</h3>
+            <p id="car-description">
+                O poder, a precisão e a paixão que definem cada McLaren. Uma experiência
+                audiovisual que captura a essência do automobilismo mais exclusivo do mundo.
+            </p>
+            <a href="#" class="btn-aderir" onclick="openModal(); return false;">Login</a>
+        </div>
+
+        <div class="gallery">
+            <div class="carousel">
+                <a class="carousel-item" href="#trailer!">
+                    <img src="cars/cars/mclaren-4.jpeg" onclick="TrocaVideo('trailer-1')" alt="Trailer">
+                    <h4 style="color:#ffd700;">TRAILER</h4>
+                </a>
+                <a class="carousel-item" href="#one!">
+                    <img src="cars/cars/mclaren-1.jpg" onclick="TrocaVideo('mclaren-1')" alt="765LT SPIDER">
+                    <h4>765LT SPIDER</h4>
+                </a>
+                <a class="carousel-item" href="#two!">
+                    <img src="cars/cars/mclaren-2.jpg" onclick="TrocaVideo('mclaren-2')" alt="ARTURA">
+                    <h4 style="color:#92ff00;">ARTURA</h4>
+                </a>
+                <a class="carousel-item" href="#three!">
+                    <img src="cars/cars/mclaren-3.jpeg" onclick="TrocaVideo('mclaren-3')" alt="750S">
+                    <h4 style="color:#ff0015;">750S</h4>
+                </a>
+                <a class="carousel-item" href="#four!">
+                    <img src="cars/cars/mclaren-4.jpeg" onclick="TrocaVideo('mclaren-4')" alt="765LT">
+                    <h4 style="color:#ff2e00;">765LT</h4>
+                </a>
+                <a class="carousel-item" href="#five!">
+                    <img src="cars/cars/mclaren-5.jpeg" onclick="TrocaVideo('mclaren-5')" alt="750S SPIDER">
+                    <h4 style="color:#bbc0dd;">750S SPIDER</h4>
+                </a>
+                <a class="carousel-item" href="#six!">
+                    <img src="cars/cars/mc-laren-6.jpg" onclick="TrocaVideo('mclaren-6')" alt="SENNA">
+                    <h4 style="color:#ff9500;">SENNA</h4>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ÍCONES SOCIAIS & CONTROLES ===== -->
+    <ul class="sci">
+        <li>
+            <a href="#" class="play" onclick="playVideo(); return false;"><i class="bi bi-play-circle"></i></a>
+            <a href="#" class="pause active" onclick="pauseVideo(); return false;"><i class="bi bi-pause-circle"></i></a>
+        </li>
+        <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+        <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+        <li><a href="#"><i class="bi bi-twitter-x"></i></a></li>
+        <li><a href="#" id="play_btn"><i class="bi bi-music-player" id="music-icon"></i></a></li>
+    </ul>
+
+    <!-- ===== SEÇÃO 2 — PERFORMANCE ===== -->
+    <section class="section-performance" id="performance">
+        <div class="section-bg-img" style="background-image:url('cars/cars/mclaren-3.jpeg')"></div>
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Tecnologia</span>
+                <h2>Engenharia de <span>Alta Performance</span></h2>
+                <p>
+                    Cada McLaren é uma obra-prima construída com tecnologia derivada da Fórmula 1,
+                    materiais aeroespaciais e décadas de paixão automobilística sem compromissos.
+                </p>
+            </div>
+            <div class="performance-grid">
+                <div class="perf-card">
+                    <div class="perf-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                    <h3>Motor V8 Biturbo</h3>
+                    <p>
+                        4.0 litros de pura performance. Desenvolvido exclusivamente pela McLaren
+                        para entregar potência extraordinária e uma sonoridade única a 8.500 RPM.
+                    </p>
+                    <span class="perf-stat">765<small>cv</small></span>
+                </div>
+                <div class="perf-card featured">
+                    <div class="perf-icon"><i class="bi bi-wind"></i></div>
+                    <h3>Aerodinâmica Ativa</h3>
+                    <p>
+                        Downforce inteligente com spoiler traseiro adaptativo, difusor de alta
+                        eficiência e canais de ar derivados diretamente das pistas de F1.
+                    </p>
+                    <span class="perf-stat">330<small>km/h</small></span>
+                </div>
+                <div class="perf-card">
+                    <div class="perf-icon"><i class="bi bi-shield-check"></i></div>
+                    <h3>Chassi MonoCell II</h3>
+                    <p>
+                        Monocoque em fibra de carbono herdado da F1. Estrutura que combina
+                        leveza extrema com rigidez estrutural incomparável para máxima segurança.
+                    </p>
+                    <span class="perf-stat">1.229<small>kg</small></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEÇÃO 3 — MODELOS ===== -->
+    <section class="section-models" id="modelos">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Lineup</span>
+                <h2>A Família <span>McLaren</span></h2>
+                <p>
+                    Seis modelos distintos. Cada um com sua própria identidade,
+                    propósito e emoção. Encontre o que foi feito para você.
+                </p>
+            </div>
+            <button class="btn-ver-todos" id="btn-ver-todos" onclick="verTodos()">
+                &#8592; Ver todos os modelos
+            </button>
+            <div class="models-grid">
+                <div class="model-card" data-car="mclaren-1">
+                    <div class="model-img" style="background-image:url('cars/cars/mclaren-1.jpg')">
+                        <div class="model-overlay"></div>
+                    </div>
+                    <div class="model-info">
+                        <h3 style="color:var(--primary);">765LT SPIDER</h3>
+                        <p>A versão conversível do Longtail mais exclusivo. 765cv e a emoção do ar livre sem limites, com apenas 765 unidades produzidas no mundo.</p>
+                        <a href="#" class="btn-model" onclick="openModal(); return false;">Aderir</a>
+                    </div>
+                </div>
+                <div class="model-card" data-car="mclaren-2">
+                    <div class="model-img" style="background-image:url('cars/cars/mclaren-2.jpg')">
+                        <div class="model-overlay"></div>
+                    </div>
+                    <div class="model-info">
+                        <h3 style="color:#92ff00;">ARTURA</h3>
+                        <p>O futuro híbrido da McLaren. Motor V6 biturbo + elétrico com 680cv combinados. Tecnologia de nova geração para uma nova era de supercars.</p>
+                        <a href="#" class="btn-model" onclick="openModal(); return false;">Aderir</a>
+                    </div>
+                </div>
+                <div class="model-card" data-car="mclaren-3">
+                    <div class="model-img" style="background-image:url('cars/cars/mclaren-3.jpeg')">
+                        <div class="model-overlay"></div>
+                    </div>
+                    <div class="model-info">
+                        <h3 style="color:#ff0015;">750S</h3>
+                        <p>750cv, 800Nm de torque e suspensão hidráulica de nova geração. Mais leve e potente que qualquer predecessor — o McLaren mais prazeroso de dirigir.</p>
+                        <a href="#" class="btn-model" onclick="openModal(); return false;">Aderir</a>
+                    </div>
+                </div>
+                <div class="model-card" data-car="mclaren-4">
+                    <div class="model-img" style="background-image:url('cars/cars/mclaren-4.jpeg')">
+                        <div class="model-overlay"></div>
+                    </div>
+                    <div class="model-info">
+                        <h3 style="color:#ff2e00;">765LT</h3>
+                        <p>O McLaren mais extremo da Sports Series. Apenas 1.229kg, escapamento em titânio e aerodinâmica Longtail desenvolvida para as pistas mais exigentes.</p>
+                        <a href="#" class="btn-model" onclick="openModal(); return false;">Aderir</a>
+                    </div>
+                </div>
+                <div class="model-card" data-car="mclaren-5">
+                    <div class="model-img" style="background-image:url('cars/cars/mclaren-5.jpeg')">
+                        <div class="model-overlay"></div>
+                    </div>
+                    <div class="model-info">
+                        <h3 style="color:#bbc0dd;">750S SPIDER</h3>
+                        <p>A essência do 750S sem o teto. Capota retrátil em apenas 11 segundos, chassi MonoCell II-T em fibra de carbono e 750cv de pura liberdade ao ar livre.</p>
+                        <a href="#" class="btn-model" onclick="openModal(); return false;">Aderir</a>
+                    </div>
+                </div>
+                <div class="model-card" data-car="mclaren-6">
+                    <div class="model-img" style="background-image:url('cars/cars/mc-laren-6.jpg')">
+                        <div class="model-overlay"></div>
+                    </div>
+                    <div class="model-info">
+                        <h3 style="color:#ff9500;">SENNA</h3>
+                        <p>800cv, 1.198kg e até 800kg de downforce. Apenas 500 unidades no mundo. Homenagem ao maior piloto de todos os tempos — o McLaren mais extremo já homologado para as ruas.</p>
+                        <a href="#" class="btn-model" onclick="openModal(); return false;">Aderir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="icon/logo.png" alt="McLaren">
+                <p>Construindo o extraordinário desde 1963. Performance, inovação e luxo em cada detalhe de cada modelo.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Modelos</h4>
+                <ul>
+                    <li><a href="#">765LT Spider</a></li>
+                    <li><a href="#">Artura</a></li>
+                    <li><a href="#">750S</a></li>
+                    <li><a href="#">765LT</a></li>
+                    <li><a href="#">750S Spider</a></li>
+                    <li><a href="#">Senna</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>McLaren</h4>
+                <ul>
+                    <li><a href="#">Super Series</a></li>
+                    <li><a href="#">GT</a></li>
+                    <li><a href="#">Ultimate Series</a></li>
+                    <li><a href="#">Solus</a></li>
+                    <li><a href="#">Legacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Siga-nos</h4>
+                <div class="footer-social-icons">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 McLaren Automotive Limited. Todos os direitos reservados. | Projeto Beta</p>
+        </div>
+    </footer>
+
+    <!-- ===== TOAST DE BOAS-VINDAS ===== -->
+    <div class="welcome-toast" id="welcome-toast">
+        <p class="welcome-sub">Bem-vindo de volta</p>
+        <h2 id="welcome-name"></h2>
+        <div class="welcome-line"></div>
+    </div>
+
+    <!-- ===== ÁUDIO DO TRAILER (oculto) ===== -->
+    <video id="trailer-audio" src="videos/videos/trailer-1.mp4" preload="none" loop style="display:none"></video>
+
+    <!-- ===== MODAL — LOGIN / REGISTRO ===== -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()"><i class="bi bi-x-lg"></i></button>
+            <div class="modal-logo">
+                <img src="icon/logo.png" alt="McLaren">
+            </div>
+            <div class="modal-tabs">
+                <button class="tab-btn active" id="tab-login" onclick="switchTab('login')">Login</button>
+                <button class="tab-btn" id="tab-register" onclick="switchTab('register')">Registrar</button>
+            </div>
+
+            <!-- Formulário Login -->
+            <form class="auth-form" id="form-login">
+                <div class="form-group">
+                    <label for="login-email"><i class="bi bi-envelope"></i> Email</label>
+                    <input type="email" id="login-email" placeholder="seu@email.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password"><i class="bi bi-lock"></i> Senha</label>
+                    <input type="password" id="login-password" placeholder="••••••••" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="btn-submit">Entrar</button>
+                <p class="form-switch">Não tem conta? <a href="#" onclick="switchTab('register'); return false;">Registrar agora</a></p>
+            </form>
+
+            <!-- Formulário Registro -->
+            <form class="auth-form hidden" id="form-register">
+                <div class="form-group">
+                    <label for="reg-name"><i class="bi bi-person"></i> Nome</label>
+                    <input type="text" id="reg-name" placeholder="Seu nome completo" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="reg-email"><i class="bi bi-envelope"></i> Email</label>
+                    <input type="email" id="reg-email" placeholder="seu@email.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="reg-password"><i class="bi bi-lock"></i> Senha</label>
+                    <input type="password" id="reg-password" placeholder="Mínimo 6 caracteres" required autocomplete="new-password">
+                </div>
+                <div class="form-group">
+                    <label for="reg-confirm"><i class="bi bi-lock-fill"></i> Confirmar Senha</label>
+                    <input type="password" id="reg-confirm" placeholder="Repita a senha" required autocomplete="new-password">
+                </div>
+                <button type="submit" class="btn-submit">Criar Conta</button>
+                <p class="form-switch">Já tem conta? <a href="#" onclick="switchTab('login'); return false;">Fazer login</a></p>
+            </form>
+
+            <div class="alert-msg" id="alert-msg"></div>
+        </div>
+    </div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.carousel').carousel();
+        });
+    </script>
+</body>
+</html>

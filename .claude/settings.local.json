@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/marco/OneDrive/�rea de Trabalho/Projeto-Beta/**)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(Get-ChildItem \"c:\\\\Users\\\\marco\\\\OneDrive\\\\Documents\\\\Nova pasta\\\\Projeto-Beta\\\\Beta-2\" -Recurse -Depth 1)",
+      "Bash(Select-Object Name, FullName)",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\marco\\\\OneDrive\\\\Documents\\\\Nova pasta\\\\Projeto-Beta\\\\Beta-2\\\\front-end\\\\videos\\\\videos\" | Select-Object Name, @{N='Size\\(MB\\)';E={[math]::Round\\($_.Length/1MB,1\\)}})",
+      "PowerShell(New-Item -ItemType Directory -Force \"c:\\\\Users\\\\marco\\\\OneDrive\\\\Documents\\\\Nova pasta\\\\Projeto-Beta\\\\Beta-2\\\\.github\\\\workflows\")"
+    ]
+  }
+}
